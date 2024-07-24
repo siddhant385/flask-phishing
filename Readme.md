@@ -70,7 +70,7 @@ Usage of this tool for attacking targets without prior mutual consent is illegal
 
 
 ## SPECIAL THANKS AND CREDITS:
-@[hr-tech/zphisher]("https://github.com/hr-tech/zphisher"): for their wondorful templates
+@ [hr-tech/zphisher]("https://github.com/hr-tech/zphisher") : for their wondorful templates
 
 ### MADE IN INDIA 🇮🇳 WITH ♥
 # ❤️Supporters❤️
