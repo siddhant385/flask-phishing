@@ -122,6 +122,7 @@
     </style>
 </head>
 <body>
+    
     <div class="container">
         <div class="login-form">
             <h2>Login</h2>
@@ -130,6 +131,13 @@
                     <path d="M12 3a9 9 0 000 18 9 9 0 000-18zM2 12c0-5.523 4.477-10 10-10 2.387 0 4.577.833 6.294 2.22A9.98 9.98 0 0012 22c-5.523 0-10-4.477-10-10z"/>
                 </svg>
             </div>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
             <form method="post">
                 <div class="input-field">
                     <label for="username">Username</label>

@@ -1,4 +1,5 @@
 from flask import render_template,request,redirect,flash,url_for
+from server.app import login_manager,logout_user,login_required,login_user
 from server.app import app,db
 from server.model import Data,Admin,Messengers
 from server.sqlfunc import add_data,read_data,delete_data
@@ -10,6 +11,13 @@ from server.services.userSetting import get_user,update_user_pass
 with app.app_context():
     db.create_all()
 
+
+
+@login_manager.user_loader
+def loader_user(username):
+    return Admin.query.get(username)
+
+
 #SOME VARIABLES FOR DEVELOPEMENT
 userClicks = 0
 UserEnteredPassword = 0
@@ -19,7 +27,27 @@ UserEnteredPassword = 0
 
 #####################################################################################
 #LOGIN AND CONTROL PANEL
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        user = Admin.query.filter_by(
+            username=request.form["username"]).first()
+        
+        if user is not None:
+            if user.password == request.form["password"]:
+                login_user(user)
+                return redirect(url_for("index"))
+        else:
+            flash("Incorrect Username or Password",'error')
+    return render_template("adminPanel/login.html")
+
+
+
+
+
+
 @app.route('/')
+@login_required
 def index():
     print(get_Telegram())
     # add_data("Siddhant","Howareyou","Instagram",True)
@@ -33,6 +61,10 @@ def index():
                            tele=get_Telegram)
 
 
+@app.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for("index"))
 
 
 
