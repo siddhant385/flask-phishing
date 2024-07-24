@@ -62,4 +62,4 @@ Usage of this tool for attacking targets without prior mutual consent is illegal
 hr-tech/zphisher for their wondorful templates
 ### MADE IN INDIA 🇮🇳 WITH ♥
 ### ❤️Supporters❤️
-[![Stargazers repo roster for @siddhant385/django-phishing](https://reporoster.com/stars/siddhant385/django-phishing)](https://github.com/siddhant385/pyhackthon/django-phishing)
+[![Stargazers repo roster for @siddhant385/flask-phishing](https://reporoster.com/stars/siddhant385/flask-phishing)](https://github.com/siddhant385/flask-phishing)
