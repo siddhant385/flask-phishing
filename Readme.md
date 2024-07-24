@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="sources/PhishingLogo" style="width:100px; height:100px;"></img>
+  <img src="sources/PhishingLogo.png" style="width:100px; height:100px;"></img>
 </p>
 
 -----
@@ -8,18 +8,27 @@
 PHISHING FRAMEWORK BUILT OVER FLASK AND COULD BE DEPLOYED OVER WEB TO SHOW THE RISKS OF PHISHING OVER THE WEB WITH PASSWORD FETCH OVER TELEGRAM
 - live demo of site - will come soon
 
-# Sites templates are of
+## Sites templates are of
 - Netflix
 - Instagram
-Will Update More
-
+Will Update More Soon
 -----
+# FEATURES 
+
+- When Deployed to Host no port-Forwarding Required
+- Seperate Web Panel For Montioring 
+- Telegram Bot Support Also for Recieving phised Emails and Passwords
+- Many Many More Features See Yourself
+
+
 # UPCOMING FEATURES
 - More Encrypted 
 - Will Create Automated Installer
 - Will Embed a URL Shortner
 - Will Create a auto verifier for storing legin passwords Only
 - Will Embed Ngrok for local port-forwarding
+- Will Create More Sender Bot along With Telegram for Convinence
+- Will Create Robots.txt for bot removal
 -----
 # REQUIREMENTS:
 + Python3
