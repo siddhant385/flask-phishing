@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Panel</title>
+    <style>
+        /* Existing styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar {
+            margin: 0;
+            padding: 0;
+            width: 250px;
+            background-color: #2c3e50;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+            transition: width 0.3s;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a.active, .sidebar a:hover {
+            background-color: #1abc9c;
+            color: white;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 16px;
+            transition: margin-left 0.3s;
+        }
+
+        .hide-sidebar .sidebar {
+            width: 0;
+        }
+
+        .hide-sidebar .content {
+            margin-left: 0;
+        }
+
+        .topbar {
+            display: none;
+            width: 100%;
+            background-color: #2c3e50;
+            overflow: auto;
+            position: relative;
+        }
+
+        .topbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .topbar a.active, .topbar a:hover {
+            background-color: #1abc9c;
+        }
+
+        @media screen and (max-width: 700px) {
+            .sidebar {
+                display: none;
+            }
+            .topbar {
+                display: block;
+            }
+            .content {
+                margin-left: 0;
+            }
+        }
+
+        h2 {
+            display: inline-block;
+        }
+
+        .toggle-btn {
+            display: inline-block;
+            float: right;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .toggle-btn svg {
+            width: 24px;
+            height: 24px;
+            transition: fill 0.3s;
+        }
+
+        .dashboard, .data, .config {
+            display: none;
+        }
+
+        .dark-mode {
+            background-color: #1c1c1c;
+            color: #f2f2f2;
+        }
+
+        .dark-mode .sidebar {
+            background-color: #2c2c2c;
+        }
+
+        .dark-mode .topbar {
+            background-color: #2c2c2c;
+        }
+
+        .dark-mode .toggle-btn svg {
+            fill: #ffcc00;
+        }
+
+        .dark-mode .dashboard .widget {
+            background-color: #3c3c3c;
+            color: #f2f2f2;
+        }
+
+        .widget {
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .table th, .table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #f4f4f4;
+        }
+
+        .table td i {
+            font-size: 18px;
+        }
+
+        .table td .delete-btn {
+            color: red;
+            cursor: pointer;
+        }
+
+        /* New styles for forms */
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .form-container h3 {
+            margin-bottom: 20px;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-container input, .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-container button {
+            background-color: #1abc9c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #16a085;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a class="active" href="#sites" onclick="showTab('sites', this)">Sites</a>
+        <a href="#dashboard" onclick="showTab('dashboard', this)">Dashboard</a>
+        <a href="#data" onclick="showTab('data', this)">Data</a>
+        <a href="#config" onclick="showTab('config', this)">Config</a>
+    </div>
+    <div class="topbar">
+        <a class="active" href="#sites" onclick="showTab('sites', this)">Sites</a>
+        <a href="#dashboard" onclick="showTab('dashboard', this)">Dashboard</a>
+        <a href="#data" onclick="showTab('data', this)">Data</a>
+        <a href="#config" onclick="showTab('config', this)">Config</a>
+    </div>
+    <div class="content">
+        <div class="toggle-btn" id="darkModeToggle" onclick="toggleDarkMode()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000">
+                <path d="M12 3a9 9 0 000 18 9 9 0 000-18zM2 12c0-5.523 4.477-10 10-10 2.387 0 4.577.833 6.294 2.22A9.98 9.98 0 0012 22c-5.523 0-10-4.477-10-10z"/>
+            </svg>
+        </div>
+        <div id="sites">
+            <h2>Sites</h2>
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Serial No.</th>
+                            <th>Templates</th>
+                            <th>Url</th>
+                            <th>Copy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for x, items in enumerate(template) %}
+                        <tr>
+                            <td>{{ x+1 }}</td>
+                            <td>{{ items[0] }}</td>
+                            <td id="url{{ x+1 }}">{{ request.url+items[1] }}</td>
+                            <td><button onclick="copyToClipboard('url{{ x+1 }}')">Copy</button></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="dashboard" class="dashboard">
+            <h2>Dashboard</h2>
+            <div class="widget">
+                <h3>No. of User Clicked</h3>
+                <p id="userClicks" data-target="{{ clicks }}">0</p>
+            </div>
+            <div class="widget">
+                <h3>No. of Username and Passwords Recorded</h3>
+                <p id="userPasswords" data-target="{{ phishedUsers }}">0</p>
+            </div>
+        </div>
+        <div id="data" class="data">
+            <h2>Data</h2>
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Template</th>
+                            <th>Is Verified</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in userlist() %}
+                        <tr>
+                            <td id="{{ user.username }}">{{ user.username }}</td>
+                            <td>{{ user.password }}</td>
+                            <td>{{ user.template }}</td>
+                            <td><i class="verified">{{ "✔️" if user.isVerified == "True" else "❌" }}</i></td>
+                            <td><span class="delete-btn" id="{{ user.username }}" onclick="deleteRow(this)">❌</span></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="config" class="config">
+            <h2>Config</h2>
+            <div class="form-container">
+                <h3>Edit Username and Password</h3>
+                <form id="editUserForm" onsubmit="return submitEditUserForm()">
+                    <label for="username">Username</label>
+                    <input type="hidden" id = oldusername name="oldusername" value="{{user()[0].username}}">
+                    <input type="text" id="username" name="username" required value="{{user()[0].username}}">
+
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+
+                    <button type="submit">Update</button>
+                </form>
+            </div>
+
+            <div class="form-container">
+                <h3>Update Telegram Config</h3>
+                <form id="editTelegramConfigForm" onsubmit="return submitEditTelegramConfigForm()">
+                    <label for="telegramToken">Telegram Token</label>
+                    <input type="text" id="telegramToken" name="token" required value="{{tele()[0].token}}">
+
+                    <label for="telegramChatId">Telegram Chat ID</label>
+                    <input type="text" id="telegramChatId" name="chatid" required value="{{tele()[0].chat_id}}">
+
+                    <label for="telegramUseIt">Use Telegram</label>
+                    <select id="telegramUseIt" name="use" required>
+                        {% if tele()[0].use_it %}
+                            <option value="True">Yes</option selected>
+                            <option value="False">No</option>
+                        {% else %}
+                        <option value="False">No</option selected>
+                        <option value="True">Yes</option>
+                        {% endif %}
+                        
+                    </select>
+
+                    <button type="submit">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tab, element) {
+            document.getElementById('sites').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'none';
+            document.getElementById('data').style.display = 'none';
+            document.getElementById('config').style.display = 'none';
+            document.getElementById(tab).style.display = 'block';
+
+            const links = document.querySelectorAll('.sidebar a, .topbar a');
+            links.forEach(link => link.classList.remove('active'));
+            element.classList.add('active');
+
+            localStorage.setItem('activeTab', tab);
+
+            if (tab === 'dashboard') {
+                initCounters();
+            }
+        }
+
+        function initCounters() {
+            document.querySelectorAll('[data-target]').forEach(counter => {
+                const endValue = parseInt(counter.getAttribute('data-target'), 10);
+                if (endValue > 0) {
+                    counterEffect(counter.id, 0, endValue, 1000);
+                }
+            });
+        }
+
+        function counterEffect(id, start, end, duration) {
+            let current = start;
+            const increment = end > start ? 1 : -1;
+            const stepTime = Math.abs(Math.floor(duration / (end - start)));
+            const obj = document.getElementById(id);
+
+            const timer = setInterval(() => {
+                current += increment;
+                obj.textContent = current;
+                if (current === end) {
+                    clearInterval(timer);
+                }
+            }, stepTime);
+        }
+
+        function copyToClipboard(elementId) {
+            const urlElement = document.getElementById(elementId);
+            const range = document.createRange();
+            range.selectNode(urlElement);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            alert('URL copied to clipboard: ' + urlElement.textContent);
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const activeTab = localStorage.getItem('activeTab') || 'sites';
+            showTab(activeTab, document.querySelector(`.sidebar a[href="#${activeTab}"]`) || document.querySelector('.sidebar a.active'));
+        });
+
+        function deleteRow(element) {
+            const name = element.id;
+            const row = element.closest('tr');
+            row.remove();
+            const formData = new FormData();
+            formData.append('username', name);
+
+            fetch("/delete", {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                    console.log("Failed to call function");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }
+
+        function submitEditUserForm() {
+            // Handle form submission for editing username and password
+            const form = document.getElementById('editUserForm');
+            const formData = new FormData(form);
+
+            fetch('/config/user&pass', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Username and Password updated successfully!');
+                } else {
+                    alert('Failed to update Username and Password.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+
+            return false; // Prevent default form submission
+        }
+
+        function submitEditTelegramConfigForm() {
+            // Handle form submission for updating Telegram config
+            const form = document.getElementById('editTelegramConfigForm');
+            const formData = new FormData(form);
+
+            fetch('/config/telegram', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Telegram Config updated successfully!');
+                } else {
+                    alert('Failed to update Telegram Config.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+
+            return false; // Prevent default form submission
+        }
+    </script>
+</body>
+</html>

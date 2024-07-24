@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            padding: 40px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .login-form {
+            width: 100%;
+            position: relative;
+        }
+        
+        .login-form h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 24px;
+            display: inline-block;
+        }
+        
+        .toggle-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .toggle-btn svg {
+            width: 24px;
+            height: 24px;
+            transition: fill 0.3s;
+        }
+
+        .input-field {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .input-field label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 14px;
+        }
+        
+        .input-field input {
+            width: 100%;
+            padding: 12px;
+            padding-right: 20px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .dark-mode {
+            background-color: #1c1c1c;
+            color: #f2f2f2;
+        }
+        
+        .dark-mode .container {
+            background-color: #2c2c2c;
+            color: #f2f2f2;
+        }
+        
+        .dark-mode .input-field input {
+            background-color: #3c3c3c;
+            color: #f2f2f2;
+            border: 1px solid #444;
+        }
+
+        .dark-mode button {
+            background-color: #555;
+            color: #fff;
+        }
+
+        .dark-mode button:hover {
+            background-color: #666;
+        }
+
+        .dark-mode .toggle-btn svg {
+            fill: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <h2>Login</h2>
+            <div class="toggle-btn" id="darkModeToggle" onclick="toggleDarkMode()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000">
+                    <path d="M12 3a9 9 0 000 18 9 9 0 000-18zM2 12c0-5.523 4.477-10 10-10 2.387 0 4.577.833 6.294 2.22A9.98 9.98 0 0012 22c-5.523 0-10-4.477-10-10z"/>
+                </svg>
+            </div>
+            <form method="post">
+                <div class="input-field">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const svg = document.querySelector('.toggle-btn svg');
+            svg.innerHTML = document.body.classList.contains('dark-mode') ?
+                '<path d="M12 3a9 9 0 000 18 9 9 0 000-18zM2 12c0-5.523 4.477-10 10-10 2.387 0 4.577.833 6.294 2.22A9.98 9.98 0 0012 22c-5.523 0-10-4.477-10-10z"/>' :
+                '<path d="M12 3a9 9 0 000 18 9 9 0 000-18zM2 12c0-5.523 4.477-10 10-10 2.387 0 4.577.833 6.294 2.22A9.98 9.98 0 0012 22c-5.523 0-10-4.477-10-10z"/>';
+        }
+    </script>
+</body>
+</html>
