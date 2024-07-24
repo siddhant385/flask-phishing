@@ -1,0 +1,5 @@
+flask
+flask-login
+requests
+flask_sqlalchemy
+user_agents
