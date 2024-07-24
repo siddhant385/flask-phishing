@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="sources/PhishingLogoEdited.png" style="width:100px; height:100px;"></img>
+  <img src="sources/PhishingLogo" style="width:100px; height:100px;"></img>
 </p>
 
 -----
