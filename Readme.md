@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="sources/PhishingLogo.png" style="width:100px; height:100px;"></img>
+  <img src="sources/PhishingLogo.png" style="width:400px; height:400px;"></img>
 </p>
 
 -----
@@ -67,8 +67,11 @@ For Supported Hosting Platforms see below
 
 ### Disclaimer :
 Usage of this tool for attacking targets without prior mutual consent is illegal. It's the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program.
-### SPECIAL THANKS:
-hr-tech/zphisher for their wondorful templates
+
+
+## SPECIAL THANKS AND CREDITS:
+@[hr-tech/zphisher]("https://github.com/hr-tech/zphisher"): for their wondorful templates
+
 ### MADE IN INDIA 🇮🇳 WITH ♥
-### ❤️Supporters❤️
+# ❤️Supporters❤️
 [![Stargazers repo roster for @siddhant385/flask-phishing](https://reporoster.com/stars/siddhant385/flask-phishing)](https://github.com/siddhant385/flask-phishing)
