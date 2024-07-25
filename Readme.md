@@ -6,7 +6,7 @@
 # ABOUT:
 
 PHISHING FRAMEWORK BUILT OVER FLASK AND COULD BE DEPLOYED OVER WEB TO SHOW THE RISKS OF PHISHING OVER THE WEB WITH PASSWORD FETCH OVER TELEGRAM
-- live demo of site - will come soon
+- [live demo of site](https://tewale9829.pythonanywhere.com/)
 
 ## Sites templates are of
 - Netflix
@@ -53,6 +53,7 @@ Will Update More Soon
 + HAVE A NICE PHISHING
 
 ## If you want to host this site (without Port Forwarding) (Recommended)
+### If you want to host to pythonanywhere look this [blog](https://siddhant385.github.io/blog/p/flask-phishing/) https://siddhant385.github.io/blog/p/flask-phishing/
 For Supported Hosting Platforms see below
 + Different Hosting Platforms support different procedures know yours
 + You will need a Hosting Platform which supports sqllite
@@ -70,7 +71,7 @@ Usage of this tool for attacking targets without prior mutual consent is illegal
 
 
 ## SPECIAL THANKS AND CREDITS:
-@ [htr-tech/zphisher](https://github.com/hr-tech/zphisher) : for their wondorful templates
+@ [htr-tech/zphisher](https://github.com/htr-tech/zphisher) : for their wondorful templates
 
 ### MADE IN INDIA 🇮🇳 WITH ♥
 # ❤️Supporters❤️
