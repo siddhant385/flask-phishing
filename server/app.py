@@ -1,10 +1,12 @@
 from flask import Flask,render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, login_user, logout_user,login_required
+import os
 
+database_path = os.environ.get('instance', 'data.db')
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "itsverysecret"
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///data.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{database_path}"
 
 
 db = SQLAlchemy(app)
