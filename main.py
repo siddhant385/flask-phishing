@@ -30,12 +30,11 @@ UserEnteredPassword = 0
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        user = Admin.query.filter_by(
-            username=request.form["username"]).first()
-        
-        if user is not None:
-            if user.password == request.form["password"]:
-                login_user(user)
+        user = get_user()
+        username=request.form["username"]
+        if user[0].username == username:
+            if user[0].password == request.form["password"]:
+                login_user(user[0])
                 return redirect(url_for("index"))
         else:
             flash("Incorrect Username or Password",'error')
