@@ -1,78 +1,85 @@
 <p align="center">
-  <img src="sources/PhishingLogo.png" style="width:400px; height:400px;"></img>
+  <img src="sources/PhishingLogo.png" style="width:400px; height:400px;">
 </p>
 
+# 🎣 PHISHING FRAMEWORK 🎣
+
+## ABOUT
+Yo! Welcome to the Phishing Framework. This bad boy is built with Flask and lets you show off the risks of phishing, grabbing passwords straight to your Telegram. 🚀
+
+- **[Check Out the Live Demo](https://tewale9829.pythonanywhere.com/)** 🌐
+
+## Templates On Deck:
+- 🎥 Netflix
+- 📸 Instagram
+- *More cool stuff coming soon!* 🌟
+
 -----
-# ABOUT:
 
-PHISHING FRAMEWORK BUILT OVER FLASK AND COULD BE DEPLOYED OVER WEB TO SHOW THE RISKS OF PHISHING OVER THE WEB WITH PASSWORD FETCH OVER TELEGRAM
-- [live demo of site](https://tewale9829.pythonanywhere.com/)
+## FEATURES
+- 🚫 No port-forwarding needed when hosted
+- 🖥️ Separate web panel for all your monitoring needs
+- 🤖 Telegram bot support for instant phished emails and passwords
+- 🔥 And many more awesome features – dive in and see!
 
-## Sites templates are of
-- Netflix
-- Instagram
-Will Update More Soon
 -----
-# FEATURES 
 
-- When Deployed to Host no port-Forwarding Required
-- Seperate Web Panel For Montioring 
-- Telegram Bot Support Also for Recieving phised Emails and Passwords
-- Many Many More Features See Yourself
+## WHAT'S NEXT
+- 🔐 Beefed-up encryption
+- ⚙️ Automated installer
+- 🔗 Embedded URL shortener
+- ✅ Auto verifier for storing legit passwords only
+- 🌐 Ngrok for local port-forwarding
+- 📲 More sender bots along with Telegram for convenience
+- 🤖 Robots.txt for bot removal
 
-
-# UPCOMING FEATURES
-- More Encrypted 
-- Will Create Automated Installer
-- Will Embed a URL Shortner
-- Will Create a auto verifier for storing legin passwords Only
-- Will Embed Ngrok for local port-forwarding
-- Will Create More Sender Bot along With Telegram for Convinence
-- Will Create Robots.txt for bot removal
 -----
-# REQUIREMENTS:
-+ Python3
-+ Flask
-+ Flask-Admin
-+ Requests
-+ User-Agent
-+ YOUR LOVE AND SUPPORT WITH UPVOTE
--------
 
-# SETUP AND INSTALLATION
-## If you want to run Locally (with Port Forwarding)
-+ CLONE THIS REPOSITORY
-+ INSTALL THE REQUIREMENTS
-+ RUN MAIN.PY AND HEAD TOWARDS THE URL GIVEN MAINLY http://localhost:8000
-+ LOGIN WITH USERNAME AND PASSWORD AS admin:root
-+ YOUR CONTROL PANEL WINDOW WILL APPEAR
-+ CREATE YOUR TELEGRAM BOT WITH BOTHFATHER
-+ KNOW YOUR CHAT ID OF TELEGRAM
-+ PUT YOUR DETAILS IN Config Tab of website
-+ TEST THE RISKS OF PHISHING AND HOW ITS DONE
-+ HAVE A NICE PHISHING
+## REQUIREMENTS
+- 🐍 Python3
+- 🌐 Flask
+- 🔧 Flask-Admin
+- 📡 Requests
+- 👤 User-Agent
+- **And most importantly, your love and support with a star! ⭐**
 
-## If you want to host this site (without Port Forwarding) (Recommended)
-### If you want to host to pythonanywhere look this [blog](https://siddhant385.github.io/blog/p/flask-phishing/) https://siddhant385.github.io/blog/p/flask-phishing/
-For Supported Hosting Platforms see below
-+ Different Hosting Platforms support different procedures know yours
-+ You will need a Hosting Platform which supports sqllite
-+ If you want to Use Different Database platform just change the sql url in server/app.py line number 7 to your desired Database Platform which is compatible with SQLAlchemy 
-+ Update your Username and Password 
-+ Have a Nice Phishing 
-+ For More Information open an issue regarding hosting I will try to resolve as soon as possible
+-----
 
-----------
+## HOW TO GET STARTED
 
-# WAIT FOR THE NEW FEATURES
+### Local Setup (with Port Forwarding)
+1. 🔽 Clone this repo
+2. 📦 Install the requirements
+3. 🚀 Run `main.py` and head to `http://localhost:8000`
+4. 🔑 Login with `admin:root`
+5. 📋 Your control panel window will appear
+6. 🤖 Create your Telegram bot with BotFather
+7. 🆔 Grab your Telegram chat ID
+8. ⚙️ Enter your deets in the Config tab
+9. 💡 Test and learn about phishing risks
+10. 🎉 Happy phishing!
 
-### Disclaimer :
-Usage of this tool for attacking targets without prior mutual consent is illegal. It's the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program.
+### Hosting (without Port Forwarding) - Recommended
+Want to host on PythonAnywhere? Check this [blog post](https://siddhant385.github.io/blog/p/flask-phishing/). 📝
 
+For other hosting platforms:
+- 🌐 Different platforms, different procedures – know yours!
+- 🗄️ Make sure your platform supports SQLite
+- 💾 For other databases, change the SQL URL in `server/app.py` line 7
+- 🔐 Update your username and password
+- 🎉 Happy phishing!
+- ❓ Got questions? Open an issue and I’ll sort you out ASAP.
 
-## SPECIAL THANKS AND CREDITS:
-@ [htr-tech/zphisher](https://github.com/htr-tech/zphisher) : for their wondorful templates
+-----
 
-### MADE IN INDIA 🇮🇳 WITH ♥
-# ❤️Supporters❤️
+## STAY TUNED FOR NEW FEATURES
+
+### Disclaimer
+⚠️ Using this tool for attacking targets without prior mutual consent is illegal. You must obey all local, state, and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program.
+
+## SPECIAL SHOUTOUTS
+💖 Huge thanks to [htr-tech/zphisher](https://github.com/htr-tech/zphisher) for their awesome templates.
+
+### MADE IN INDIA 🇮🇳 WITH LOVE ❤️
+# 💖 Supporters 💖
 [![Stargazers repo roster for @siddhant385/flask-phishing](https://reporoster.com/stars/siddhant385/flask-phishing)](https://github.com/siddhant385/flask-phishing)
