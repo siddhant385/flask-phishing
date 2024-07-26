@@ -23,6 +23,7 @@ Yo! Welcome to the Phishing Framework. This bad boy is built with Flask and lets
 - 🔥 And many more awesome features – dive in and see!
 
 -----
+## WHAT'S NEXT
 
 Here's the plan, folks! 📝
 
