@@ -57,15 +57,14 @@ Here's the plan, folks! 📝
 
 ### Local Setup (with Port Forwarding)
 1. 🔽 Clone this repo
-2. 📦 Install the requirements
-3. 🚀 Run `setup.py` and then head to `url` in browser
-4. 🔑 Login with `admin:root`
-5. 📋 Your control panel window will appear
-6. 🤖 Create your Telegram bot with BotFather
-7. 🆔 Grab your Telegram chat ID
-8. ⚙️ Enter your deets in the Config tab
-9. 💡 Test and learn about phishing risks
-10. 🎉 Happy phishing!
+2. 🚀 Run `setup.py` and then head to `url` in browser
+3. 🔑 Login with `admin:root`
+4. 📋 Your control panel window will appear
+5. 🤖 Create your Telegram bot with BotFather
+6. 🆔 Grab your Telegram chat ID
+7. ⚙️ Enter your deets in the Config tab
+8. 💡 Test and learn about phishing risks
+9. 🎉 Happy phishing!
 
 ### Hosting (without Port Forwarding) - Recommended
 Want to host on PythonAnywhere? Check this [blog post](https://siddhant385.github.io/blog/p/flask-phishing/). 📝
