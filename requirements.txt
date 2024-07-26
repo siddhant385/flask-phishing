@@ -1,5 +1,6 @@
 flask
-flask-login
+flask_login
 requests
 flask_sqlalchemy
 user_agents
+clipman
