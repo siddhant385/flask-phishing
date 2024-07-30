@@ -12,6 +12,7 @@ Yo! Welcome to the Phishing Framework. This bad boy is built with Flask and lets
 ## Templates On Deck:
 - 🎥 Netflix
 - 📸 Instagram
+- 👍 Facebook
 - *More cool stuff coming soon!* 🌟
 
 -----

