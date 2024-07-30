@@ -5,11 +5,17 @@ import os
 # for names in list1:
 #     print(os.listdir(filepath+names))
 
+"""
+    1st. Heading
+    2nd. template
+    """
 templates = [
+    
     ["Instagram","instagram"],
     ["Ig_Verify","ig_verify"],
     ["Insta_Followers","insta_followers"],
-    ["netflix","netflix"]
+    ["netflix","netflix"],
+    ["Facebook","facebook"],
 ]
         
         

