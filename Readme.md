@@ -90,4 +90,4 @@ For other hosting platforms:
 
 ### MADE IN INDIA 🇮🇳 WITH LOVE ❤️
 # 💖 Supporters 💖
-[![Stargazers repo roster for @siddhant385/flask-phishing](https://reporoster.com/stars/siddhant385/flask-phishing)](https://github.com/siddhant385/flask-phishing)
+[![Stargazers repo roster for @siddhant385/flask-phishing](https://reporoster.com/stars/siddhant385/flask-phishing)](https://github.com/siddhant385/flask-phishing/stargazers)
